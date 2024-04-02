@@ -43,3 +43,10 @@ CRF:
   src="https://towardsdatascience.com/a-gentle-introduction-to-bayesian-deep-learning-d298c7243fd6"
   style="width:100%; height:300px;"
 ></iframe>
+
+## Feature selection 
+<iframe
+  src="https://www.analyticsvidhya.com/blog/2020/10/feature-selection-techniques-in-machine-learning/"
+  style="width:100%; height:300px;"
+></iframe>
+
