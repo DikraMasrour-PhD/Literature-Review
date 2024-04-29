@@ -2,6 +2,8 @@
 Resources:
   - https://github.com/yunjey/pytorch-tutorial
   - https://github.com/ritchieng/the-incredible-pytorch
+tags:
+  - Fundamentals
 ---
 ### PyTorch for Deep Learning
 By freeCodeCamp: 
@@ -64,12 +66,19 @@ By freeCodeCamp:
 	```python
 	from torch.utils.data import TensorDataset
 	from torch.utils.data import DataLoader 
+
+	# Utility function for train, test, val split of dataset
+	from torch.utils.data import random_split
+
+	# Example
+	train_ds, val_ds = random_split(dataset, [50000, 10000]) # 50000 and 10000 being the lengths of train and val set resp.
 	```
+	>[!tip] Define a dataloader for each of the training and validation sets to use during training
 	- **TensorDataset** allows for the manipulation of the data (inputs and targets): slicing and splitting into training and testing sets
-	- **DataLoader** is useful to load batches of predefined sizes during training epochs, it also allows for shuffling utilities
+	- **DataLoader** is useful to load batches of predefined sizes during training epochs, it also allows for shuffling utilities, it couples a dataset with a sampler
 		>[!info]- Analogy
 		>" *TensorDataset is to Pytorch what Dataframe is to Pandas* " 
-- The '**torch.nn**' module
+- The `torch.nn` module
 > **Model**  
 > ```python
 > model = nn.Linear(input_features, output, bias=boolean)
@@ -96,7 +105,7 @@ By freeCodeCamp:
 >[!warning]- About reseting gradients
 >At the end of a training epoch, always remember to set gradients back to zero using `opt.zero_grad()` otherwise PyTorch will accumulate the gradients over epochs resulting in unwanted results 
 - Simple fitting loop: Linear regression
-	```python
+```python
 	# Utility function to train the model
 	def fit(num_epochs, model, loss_fn, opt, train_dl):
 		
@@ -135,4 +144,24 @@ By freeCodeCamp:
 	fit(100, model, loss_fn, opt, train_dl)
 	# Infer
 	preds = model(test_inputs)
+```
+>[!tip]- Inference time
+>During inference, in order to save memory, we use `with torch.no_grad():` to tell PyTorch not modify, update or calculate gradients
+###### 03- Working with Images & Logistic Regression in PyTorch
+- The `torchvision` module & the `torchvision.transforms` module
+	- Loading images using an internal image module like `PIL` does not allow for the manipulation of the image. The image can thus be transformed using `torchvision.transforms.ToTensor()` for example, to get the image in a tensor format.
+- Defining a custom model or class in PyTorch
+	```python
+	# Example: making a custom model for MNIST data that flattens 28*28 the input image and applies a linear layer to it
+	class MnistModel(nn.Module):
+	    def __init__(self):
+	        super().__init__()
+	        self.linear = nn.Linear(input_size, num_classes)
+	        
+	    def forward(self, xb):
+	        xb = xb.reshape(-1, 784) # 28*28 = 784
+	        out = self.linear(xb)
+	        return out
 	```
+- More on `torch.nn.functional` 
+	- For a classification task, it is required to use the Softmax function at the output
