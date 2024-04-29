@@ -6,7 +6,7 @@ tags:
   - Paper
   - DNN
 ---
-![[Pasted image 20231107123303.png|600]]
+![[dnn-survey.png|600]]
 #### DNN categories:
 1. Sample-wise dynamic models: data-dependent architectures
 2. Spatial-wise dynamic models: adaptive computation depending on *spatial locations of image data*

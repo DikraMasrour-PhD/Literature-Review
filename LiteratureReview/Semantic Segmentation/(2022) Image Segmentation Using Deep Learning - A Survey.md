@@ -38,30 +38,33 @@ The paper brings up several Encoder-Decoder-based models:
 ![[hrnet_arch0.png|700]]
 *(Figure 1)*
 The last 4-resolution feature maps in Figure 1 are the input in the 3 cases in Figure 2
-![[HRNet_versions.png|400]]*(Figure 2)*	
+![[HRNet_versions.png|400]]
+*(Figure 2)*	
 - [[(2015) U-Net Convolutional Networks for Biomedical Image Segmentation|U-Net]] (Ronneberger et al., 2015)
 	- **Unet++**: Unet nested variant (Zhou et al, 2018)
-- (Zhang et al, 2018): Combined U-Net & ResNet for a road extraction task on remote sensing images from the Massachusetts Roads dataset
+- **ResUNet** (Zhang et al, 2018): Combined U-Net & ResNet for a road extraction task on remote sensing images from the Massachusetts Roads dataset
 - **V-Net** (Milletari et al., 2016): used for 3D image segmentation. The authors introduced a new ==Dice coefficient-based== objective function
 #### Multi-scale and Pyramid Network based models
-- **(FPN) Feature Pyramid Network** (Lin et al., 2017): bottom-up + top-down + lateral connections. FPNs make use of the inherent hierarchical nature of CNNs to produce predictions at all scales of features.
+- [[(FPN) Feature Pyramid Network]] (Lin et al., 2017): bottom-up + top-down + lateral connections. FPNs make use of the inherent hierarchical nature of CNNs to produce predictions at all scales of features.
+	![[fpn-arch.png|400]]
 - **(PSPN) Pyramid Scene Parsing Network** (Zhao et al, 2017): 
 	- Resnet as feature extractor
 	- Pyramid pooling module: performs pooling at different scales
 	- Pooling results are up-sampled to the initial feature map resolution and concatenated to capture global and local context
 	- Conv layers to generate pixel-wise predictions
-- Other models: **Dynamic Multi-scale Filters Network, Context contrasted network and gated multiscale aggregation, Adaptive Pyramid Context Network (APC-Net), Multi-scale context intertwining (MSCI)**
+		![[pspn-arch.png|500]]
+- Other models: **Dynamic Multi-scale Filters Network, Context contrasted network and gated multi-scale aggregation, Adaptive Pyramid Context Network (APC-Net), Multi-scale context intertwining (MSCI)**
 #### R-CNN based Models (instance segmentation)
-- [[(2014) R-CNN - Rich feature hierarchies for accurate object detection and semantic segmentation|R-CNN]]
-- 
-#### Dilated Convolutional and DeepLab Models
-
-- 
+- [[R-CNN Family|R-CNN]] and its extensions: 
+	- [[R-CNN Family#(2015) Fast R-CNN|Fast R-CNN]]
+	- [[R-CNN Family#(2017) Faster R-CNN Towards Real-Time Object Detection with Region Proposal Networks|Faster R-CNN]]
+	- [[R-CNN Family#(2017) Mask R-CNN|Mask R-CNN|]]
+#### Dilated Convolutional Networks and DeepLab Models
 #### Segmentation metrics
 [[(2015) FCN - Fully Convolutional Networks for Semantic Segmentation#Evaluation metrics|FCN metrics]]
 Dice coefficient $\frac{2*|A\cap B|}{|A|+|B|}$
 
-> [!warning]- Limitations
+> [!bug]- Limitations
 > - [[#Encoder-Decoder based models|(Enc-Dec)]] The main limitation of encoder-decoder based models is the loss of the fine-grained information due to the loss of the high-resolution representations during encoding. This limitation is however mitigated by HRNets. 
 
 >[!tip]- Challenges & Opportunities
