@@ -6,6 +6,8 @@ tags:
   - ImageSeg
 Reference: "Minaee, S., Boykov, Y., Porikli, F., Plaza, A., Kehtarnavaz, N., & Terzopoulos, D. (2022). Image Segmentation Using Deep Learning: A Survey. IEEE Transactions on Pattern Analysis and Machine Intelligence, 44(7), 3523–3542. https://doi.org/10.1109/TPAMI.2021.3059968"
 ---
+#### Complementary resources
+[[Resources#Comprehensive repos|Applied Deep Learning course > CV > Image Transformations > Semantic Segmentation]]
 ### 2nd draft noted
 DL Techniques discussed: 100+ up to 2019 grouped as follows:
 1. ~~Fully convolutional networks~~
@@ -60,6 +62,8 @@ The last 4-resolution feature maps in Figure 1 are the input in the 3 cases in F
 	- [[R-CNN Family#(2017) Faster R-CNN Towards Real-Time Object Detection with Region Proposal Networks|Faster R-CNN]]
 	- [[R-CNN Family#(2017) Mask R-CNN|Mask R-CNN|]]
 #### Dilated Convolutional Networks and DeepLab Models
+- **DeepLab** 
+
 #### Segmentation metrics
 [[(2015) FCN - Fully Convolutional Networks for Semantic Segmentation#Evaluation metrics|FCN metrics]]
 Dice coefficient $\frac{2*|A\cap B|}{|A|+|B|}$
