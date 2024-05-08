@@ -37,8 +37,4 @@ tags:
 		- [x] Idea: beginning & end of encoder
 			- [x] Why? Paper says: beginning SE is usually class agnostic, later SE blocks are more specialised
 
-	- [ ] PREP SCRIPT
-
-### Script
-as agreed last time we met we would fix an arch and start improving on it, 
-about SE nets, it is something that we brought up a bit earlier in our exploration
+	- [x] PREP SCRIPT
