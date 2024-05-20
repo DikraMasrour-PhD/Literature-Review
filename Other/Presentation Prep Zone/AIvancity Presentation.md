@@ -5,8 +5,12 @@ Date: 2024-05-09
 ---
 Cool blog post https://element84.com/demos/hyperspectral
 ### Overview
+>[!warning] COOL TOOL INCOMING
+> For geospatital data interactive analysis and visualisation https://leafmap.org/#acknowledgments
+
 >[!bug] LOGOS
 >- [x] Add Logos
+
 - [x] Title slide (hsi background)
 - [x] Overview slide
 - [ ] Introduction
@@ -18,26 +22,26 @@ Cool blog post https://element84.com/demos/hyperspectral
 		- [x] **segmentation**
 	- [x] what is image segmentation
 		- [x] image example
-- [ ] **Transition slide** now, how do we achieve segmentation. One of the tools that have gained popularity lately is deep learning
-- [ ] Intro to deep learning
-	- [ ] introductory concepts of deep learning
-	- [ ] why is deep learning adapted to satellite images?
-		- [ ] able to handle high dimensional data
-		- [ ] automatic feature extraction
-		- [ ] flexibility of representation: able to look at and process the satellite image under different lights (independent pixels, images, graphs, ...)
-		- [ ] DL vs Trad seg methods (e.g. thresholding)
-			- [ ] give example of clear natural image where trad method would excel and a more complex image where trad fails and DL excels
-- [ ] Deep learning for segmentation
-	- [ ] List popular architectures
-		- [ ] quickly talk about encoder-decoder architecture
-- [ ] Challenges
-	- [ ] Annotation & labelling 
-		- [ ] cost 
-		- [ ] precision
-- [ ] Applications & Research directions
-	- [ ] https://www.viact.ai/post/top-10-applications-of-satellite-imagery-ai
-	- [ ] https://www.geospatialworld.net/prime/use-cases-satellite-imagery-across-sectors/
-- [ ] Example of indian pines segmentation ??
+- [x] **Transition slide** now, how do we achieve segmentation. One of the tools that have gained popularity lately is deep learning
+- [x] Intro to deep learning
+	- [x] introductory concepts of deep learning
+	- [x] why is deep learning adapted to satellite images?
+		- [x] able to handle high dimensional data
+		- [x] automatic feature extraction
+		- [x] flexibility of representation: able to look at and process the satellite image under different lights (independent pixels, images, graphs, ...)
+		- [x] DL vs Trad seg methods (e.g. thresholding)
+			- [x] give example of clear natural image where trad method would excel and a more complex image where trad fails and DL excels
+- [x] Deep learning for segmentation
+	- [x] List popular architectures
+		- [x] quickly talk about encoder-decoder architecture
+- [x] Challenges
+	- [x] Annotation & labelling 
+		- [x] cost 
+		- [x] precision
+- [x] Applications & Research directions
+	- [x] https://www.viact.ai/post/top-10-applications-of-satellite-imagery-ai
+	- [x] https://www.geospatialworld.net/prime/use-cases-satellite-imagery-across-sectors/
+- [x] Example of indian pines segmentation ??
 
 #### Tell the story
 - What is satellite imagery?
@@ -55,12 +59,16 @@ Cool blog post https://element84.com/demos/hyperspectral
 			- to put it short **Deep learning** is a type of artificial intelligence inspired by the human brain. It uses artificial neural networks with many layers to ==learn complex patterns from huge amounts of data==, like images or text. Just like the human brain, artificial neural networks can ==automatically discover important features from the high dimensional data==, allowing it to become better at understanding the data they see and tackle ==tasks that were previously difficult for computers==.
 			- give example of why deep learning is better suited for satellite images: indian pines dataset how it is difficult to differentiate between types of vegetation??
 	- TRANSITION these characteristics happen to be just what we need to process our satellite images (animation of extracting the important phrases)
-- Deep learning for segmentation: some of the more popular architecture of deep learning models used for semantic segmentation are unets (quick overview)
+- Deep learning for segmentation: some of the more popular architecture of deep learning models used for semantic segmentation like segnets and unets. they share this notion of encoder and decoder. The first extracts features from the input image and the second, the decoder, works to reconstruct the image to its original resolution, then the segmentation head is here to assign final predictions (classes) to each of the pixels: segmentation map.
 - Challenges 
 	- all of this is great, but there has to be challenges. and I'll talk to you specifically about one challenge that i personally met during the past few months since I started my PhD
-		- **Enough accurately annotated data**
+		- data annotation
+			- openly available accurately annotated data
+		- data heterogeneity
+			- difficulty of cross-dataset evaluation, since every dataset has been captured by a different sensor with a different setup: the number of bands captured and what wavelength each band is capturing, the preprocessing each dataset has gone through
+		- classic segmentation architectures prove not ideal for MSI and HSI processing	
 - But as it turns out, research should make opportunities out of challenges and this kind of problems have been among the research directions in the field of satellite imagery processing in general 
-	- And this brings us to the applications section (show applications from https://www.viact.ai/post/top-10-applications-of-satellite-imagery-ai)
 	- directions of research go towards
 		- explanability
-		- lost resource processing (edgeAI) that aims at reducing costs and delay by moving all the processing to the 'edge' which in our case is the space mission or drone responsible for collecting the images. 
+		- low resource processing (edgeAI) that aims at reducing costs and delay by moving all the processing to the 'edge' which in our case is the space mission or drone responsible for collecting the images. 
+	- And this brings us to the applications section (show applications from https://www.viact.ai/post/top-10-applications-of-satellite-imagery-ai)

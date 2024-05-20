@@ -5,4 +5,4 @@ tags:
 
 - [[BiWeekly - TASE]]
 - [[AIvancity Presentation]]
-- [[Week 27 - Graphs in Semantic Segmentation]]
+- [[Week 28 - Graphs in Semantic Segmentation]]

@@ -4,37 +4,42 @@ tags:
   - "#PresentationPrep"
 ---
 #### Outline
-- [x] Experiment setup
-	- [x] Quick reminder of the DeepLabV3+ model  for segmentation
-	- [x] encoder architectures tested
-		- [x] resnet50
-		- [x] resnet101
-	- [x] dataset
-	- [x] Present S&E Blocks (READ PAPER WELL)
-		- [x] prep script
-		- [x] Explain how it is included in Seg model: Squeeze & Excitation as a band selection method
-	- [x] Experiment#1
-		- [x] Seg model res 50 - no SE
-	- [x] Experiment#2
-		- [x] Seg model res 101 - no pruning
-	- [x] Experiment#3
-		- [x] Seg model res 101 - with SE - with pruning
-	- [x] Compare results
-		- [x] training results
-		- [x] inference results
-			- [x] performance (miou, fscore)
-				- [x] show some cases
-			- [x] profiling (flops, latency, param number, model size)
-- [x] Opportunities for improvement
-	- [x] aggregate classes
-	- [ ] about the use case?
-	- [x] Train our own encoder, the one used is pre-trained on ImageNet for an image classification task
-		- [x] Prob#1: ImageNet are rgb images, so as we progress deeper into the encoder, the kernels are indeed enough to capture 3 input channels info but not 200+ input channels
-		- [x] Prob#2: The pre-training was done for an image classification task, not the most suitable for sem seg
-		- [x] Prob#3: HSIs are different from natural images
-	- [x] Start with conv layers before SE block
-	- [x] Have more than one SE block 
-		- [x] Idea: beginning & end of encoder
-			- [x] Why? Paper says: beginning SE is usually class agnostic, later SE blocks are more specialised
+- [x] In the continuation of the exploration of more HSI-adapted models: 
+	- [x] Ale progress on better data
+	- [x] Dikra progress on better backbone segmenter
+	- [x] Dikra SE block exploration
+- [ ] In terms of Band selection block
+	- [ ] ==mitigate non-differentiable gradient: Straight Through Estimator, Gumbel-softmax==
+	- [ ] SE with MLP learner ignores the spatial information => Convolutions & Attention instead of GAP & MLP
+	- [ ] ==see [[Contribution Ideas#^physics-informed|physics-informed MRI segmentation]]==
+- [ ] In terms of Segmentation model
+	- [ ] GNN exploration
+		- [x] One pattern that emerges is that of using over-segmentation algorithm (SLIC) + CNN for feature extraction + GNN for hidden state computation & segmentation
+			- [x] Present **Superpixel-Based Attention Graph Neural Network for Semantic Segmentation in Aerial Images**
+				- directed graph of k-nearest neighbours based on euclidean distance
+			- [x] Present **Attention Graph Convolution Network for Image Segmentation in Big SAR Imagery Data**
+				- convolution on superpixels directly
+			- [x] Present [[(2022) Contextual-Aware Land Cover Classification With U-Shaped Object Graph Neural Network. IEEE Geoscience and Remote Sensing Letters]] 
+				- adaptive edge generation, not only spatially close nodes are linked but semantically close ones too
+		- [x] How does it compare to the rest of literature?
+		- [x] Critique, what are good things to take, what are things that can be improved?
+			- *Adaptive edge generation* is a pro, inputs a richer graph structure, which is a crucial for a good latent representation of nodes.
+			- Otherwise, what do graphs add compared to Convolutions? Neighbourhood-specific processing.
+	- [ ] Better adapted CNN
+		- [ ] Train encoder from scratch?
+	- [ ] Next?
 
-	- [x] PREP SCRIPT
+### Outcomes
+New combined data:
+- less classes 23
+- more patches 11k
+Encoder pre-training
+- no pretrained backbone
+- Autoencoder: train unet for encoding input image and decoding the same image
+- Then use the encoder for semantic segmentation
+=> better performance	
+- start with Ale baseline
+Autoencoder for band selection, mask some bands and see which are most relevant, have model that selects the number of bands as well.
+	- Select 10-12 bands (required in ISS mission)
+	- compare learned bands with representative 	ones
+Goal: prove that learned bands give better performance than hand-selected ones
