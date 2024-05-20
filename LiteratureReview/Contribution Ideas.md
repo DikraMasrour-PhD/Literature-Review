@@ -1,4 +1,8 @@
 - Band selection in hyperspectral pixel classification/[[(2018) CM-CNN - Hyperspectral Band Selection with Convolutional Neural Network#^CMCNN-Contribution|CMCNN-Contribution]]
 - (Mar 26, 2024) About semantic segmentation, in [[(2015) U-Net Convolutional Networks for Biomedical Image Segmentation|U-Net]]-like architectures is there an understanding of what the encoder and decoder branch are clearly doing? Explore this question, and investigate whether it has been answered ?
-
-
+- Physics-informed band selection block ^physics-informed
+	- Take inspiration from [Physics-informed brain MRI segmentation](https://arxiv.org/pdf/2001.10767) 
+- About SE blocks as band selectors
+	- Use successive SE blocks for robust? band selection, and vote for the better one
+	- Use multi-scale/multi-resolution input image and have multiple SE blocks for each resolution, aggregate band selection decisions with attention layers
+- Auto-encoder as a band selector
