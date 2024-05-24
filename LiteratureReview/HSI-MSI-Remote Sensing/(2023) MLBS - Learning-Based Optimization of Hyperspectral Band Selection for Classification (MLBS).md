@@ -6,7 +6,7 @@ tags:
   - Paper
   - BandSelection
 ---
-![[mlbs_arch.png]]
+![[mlbs_arch.png|1300]]
 ### Summary
 
 #### Band selection network
