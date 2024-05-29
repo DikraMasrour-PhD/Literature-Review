@@ -1,6 +1,6 @@
 **Fri May 24, 2024**
 TASE use case
-- Better data: combined Hyspecnet 11k Corine with Global Land Cover. Still some label noise but less band noise.
+- Better data: combined Hyspecnet-11k Corine with Global Land Cover. Still some label-level noise but less band-level noise.
 - Better HSI-adapted encoder by training it on HSI data for reconstruction task (autoencoder)
 - Work towards selecting no more than 10-12 bands.
 Band selection research
@@ -10,3 +10,5 @@ Band selection research
 Wild ideas
 - Think of a way to have a model that also decides on the number of bands to be selected for specific input (Early Exiting-style)
 - Think of how to include [[Contribution Ideas#^physics-informed|physics-informed]] band selection 
+**Mon May 27, 2024**
+- Take BS-Nets as baseline and improve on it
