@@ -2,9 +2,11 @@
 - (Mar 26, 2024) About semantic segmentation, in [[(2015) U-Net Convolutional Networks for Biomedical Image Segmentation|U-Net]]-like architectures is there an understanding of what the encoder and decoder branch are clearly doing? Explore this question, and investigate whether it has been answered ?
 - Physics-informed band selection block ^physics-informed
 	- Take inspiration from [Physics-informed brain MRI segmentation](https://arxiv.org/pdf/2001.10767) also see [Scientific Machine Learning Through Physics–Informed Neural Networks: Where we are and What’s Next](https://link.springer.com/article/10.1007/s10915-022-01939-z)
+	- Physics-informed network to predict band quality (Ask Alejandro about the metrics they use to identify noisy or poor quality bands)
 - About SE blocks as band selectors
 	- Use successive SE blocks for robust? band selection, and vote for the better one
 	- Use multi-scale/multi-resolution input image and have multiple SE blocks for each resolution, aggregate band selection decisions with attention layers
-- Auto-encoder as a band selector: inspired from [[BS-Net]] 
 - 'Few-shot' 'self-supervised' band selector: how many labelled pixels do we need to infer the segmentation of the input image. Goal: compare to fully-supervised and approach or exceed performance
 - More than a band selector: a model that decides how many bands are needed for a particular input
+- Auto-encoder as a band selector: inspired from [[BS-Net]] 
+	- No fixed masks, rather reuse frozen Band Selection module to get adapted masks depending on input in a multi-class setting (see [[BiWeekly - TASE - Band selection BS-Nets inspired#^rec-seg|option 1]] and [[BiWeekly - TASE - Band selection BS-Nets inspired#^seg-seg|option 2]])

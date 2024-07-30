@@ -1,6 +1,0 @@
-- [ ] Graph Attention Networks
-- [ ] How attentive are GATs
-- [ ] Semantic segmentation review #1
-- [ ] Semantic segmentation review #2
-- [ ] DNNs review
-- [ ] Order Ranking (Prof. Mehdi)

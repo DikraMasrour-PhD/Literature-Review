@@ -11,4 +11,14 @@ Wild ideas
 - Think of a way to have a model that also decides on the number of bands to be selected for specific input (Early Exiting-style)
 - Think of how to include [[Contribution Ideas#^physics-informed|physics-informed]] band selection 
 **Mon May 27, 2024**
-- Take BS-Nets as baseline and improve on it
+==Meeting Pr Mehdi==
+- Reproduce BS-Nets, extract class-specific masks, reuse during inference
+**Tue June 04, 2024**
+==Meeting Pr Mehdi==
+- BS-Nets for average performance mask
+- BS-Nets for dynamic mask inference 
+	- Options: [[(2020) BS-Nets - An End-to-End Framework for Band Selection of Hyperspectral Image#BS-Nets for Convolve use case#Option 1 rec-seg|reconstruction-segmentation]] and [[(2020) BS-Nets - An End-to-End Framework for Band Selection of Hyperspectral Image#BS-Nets for Convolve use case#Option 2 seg-seg|segmentation-segmentation]]
+- Graph reconstruction 
+	- Option 1: reconstruct node features
+	- Option 2: reconstruct node features and adjacency
+	- How to motivate the use of graphs instead of CNNs? Multi-class pixels?
